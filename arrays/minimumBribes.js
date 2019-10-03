@@ -33,17 +33,15 @@ Print an integer denoting the minimum number of bribes needed to get the queue i
 */
 
 function minimumBribes(q) {
-  for (let i = 0; i < q.length; i++) {
-    if (q[i] > i + 3) {
-      console.log('Too chaotic')
-      return
-    }
-  }
   let count = 0
   let swaps = 0
   do {
     swaps = 0
     for (let i = 0; i < q.length - 1; i++) {
+      if (q[i] > i + 3) {
+        console.log('Too chaotic')
+        return
+      }
       if (q[i] > q[i + 1]) {
         count++
         swaps++
