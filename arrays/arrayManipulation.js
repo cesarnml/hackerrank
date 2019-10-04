@@ -36,7 +36,7 @@ Output Format
 Return the integer maximum value in the finished array.
 */
 function arrayManipulation(n, queries) {
-  const array = Array(n).fill(0)
+  const array = new Array(n).fill(0)
   let max = 0
   for (let i = 0; i < queries.length; i++) {
     const query = queries[i]
