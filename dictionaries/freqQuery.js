@@ -35,19 +35,31 @@ Output Format
 
 Return an integer array consisting of all the outputs of queries of type .
 */
-
 function freqQuery(queries) {
   let result = []
   const hash = {}
+  const hash2 = {}
   for (let query of queries) {
-    if (query[0] === 1) {
-      hash[query[1]] = ++hash[query[1]] || 1
-    } else if (query[0] === 2) {
-      if (hash[query[1]] > 0) {
-        hash[query[1]] = --hash[query[1]]
+    const op = query[0]
+    const input = query[1]
+    if (op === 1) {
+      hash[input] = ++hash[input] || 1
+      if (hash[input] >= 0) {
+        hash2[hash[input]] = true
+      }
+    } else if (op === 2) {
+      if (hash[input] > 0) {
+        hash[input] = --hash[input]
+      }
+      if (hash[input] >= 0) {
+        hash2[hash[input]] = true
       }
     } else {
-      Object.values(hash).includes(query[1]) ? result.push(1) : result.push(0)
+      if (hash2[input]) {
+        result.push(1)
+      } else {
+        result.push(0)
+      }
     }
   }
   return result
