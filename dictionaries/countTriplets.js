@@ -22,29 +22,20 @@ Output Format
 
 Return the count of triplets that form a geometric progression.
 */
+//* TOUGH!!!
 
 function countTriplets(arr, r) {
+  let mp2 = {}
+  let mp3 = {}
   let count = 0
-  let triplets = []
-  const sorted = arr.sort((a, b) => a - b)
-  for (let i = 0; i < arr.length - 2; i++) {
-    for (let j = i + 1; j < arr.length - 1; j++) {
-      for (let k = j + 1; k < arr.length; k++) {
-        const triplet = String(arr[i]) + String(arr[j]) + String(arr[k])
-        triplets.push(triplet)
-      }
-    }
-  }
-  const setArr = new Set(arr)
-  const series = []
-  for (let num of setArr) {
-    series.push(String(num) + String(num * r) + String(num * r ** 2))
-  }
-  triplets.forEach(triplet => {
-    if (series.includes(triplet)) {
-      count++
-    }
+
+  arr.forEach(val => {
+    if (mp3.hasOwnProperty(val)) count += mp3[val]
+    if (mp2.hasOwnProperty(val))
+      mp3[val * r] = (mp3[val * r] += mp2[val]) || mp2[val]
+    mp2[val * r] = (mp2[val * r] += 1) || 1
   })
+
   return count
 }
-console.log(countTriplets([1, 3, 9, 9, 27, 81], 3))
+console.log(countTriplets([1, 2, 1, 2, 4], 2))
