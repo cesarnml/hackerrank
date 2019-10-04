@@ -28,28 +28,23 @@ For each query, return the number of unordered anagrammatic pairs.
 
 function sherlockAndAnagrams(s) {
   const sArray = s.split('')
-  const hash = {}
+  const values = []
   for (let i = 1; i <= sArray.length - 1; i++) {
     for (let j = 0; j <= sArray.length - i; j++) {
-      let key = ''
       const value = sArray.slice(j, j + i).join('')
-      for (let k = j; k < j + i; k++) {
-        key += String(k)
-      }
-      hash[key] = value
+      values.push(value)
     }
   }
-  let subStrings = Object.values(hash)
-  const sortedStrings = subStrings.map(string => {
+  const sorted = values.map(string => {
     return string
       .split('')
       .sort()
       .join('')
   })
   let count = 0
-  for (let i = 0; i < sortedStrings.length - 1; i++) {
-    for (let j = i + 1; j < sortedStrings.length; j++) {
-      if (sortedStrings[i] === sortedStrings[j]) {
+  for (let i = 0; i < sorted.length - 1; i++) {
+    for (let j = i + 1; j < sorted.length; j++) {
+      if (sorted[i] === sorted[j]) {
         count++
       }
     }
@@ -57,8 +52,4 @@ function sherlockAndAnagrams(s) {
   return count
 }
 
-console.log(
-  sherlockAndAnagrams(
-    'ofeqjnqnxwidhbuxxhfwargwkikjqwyghpsygjxyrarcoacwnhxyqlrviikfuiuotifznqmzpjrxycnqktkryutpqvbgbgthfges'
-  )
-)
+console.log(sherlockAndAnagrams('cesar'))
