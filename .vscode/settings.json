@@ -6,5 +6,11 @@
     "activityBar.background": "#0B3509",
     "titleBar.activeBackground": "#0F4B0C",
     "titleBar.activeForeground": "#F4FDF3"
-  }
+  },
+  "cSpell.ignoreWords": [
+    "Guster, Guten, Hola, fizzbuzz, Server-Testing-Mini",
+    "aieou",
+    "azcbobobegghakl",
+    "beggh"
+  ]
 }
