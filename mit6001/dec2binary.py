@@ -24,8 +24,9 @@ while ((decimal * 2**p) % 1 != 0):
     print('Remainder = ' + str((decimal * 2**p) - int((decimal * 2**p))))
     p += 1
 
+print("p is: " + str(p))
 num2 = int(decimal * 2 ** p)
 part1 = int2binary(integer)
 part2 = int2binary(num2)
 
-print(part1 + "." + '0' + part2)
+print(part1 + "." + "0" * (p - len(part2)) + part2)
