@@ -5,7 +5,7 @@ Write a program that prints the number of times the string 'bob' occurs in s.
 For example, if s = 'azcbobobegghakl', then your program should print
 """
 
-s = input("Prove a lower case string")
+s = input("Prove a lower case string:\n")
 
 count = 0
 

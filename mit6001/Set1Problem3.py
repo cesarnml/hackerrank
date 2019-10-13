@@ -16,7 +16,7 @@ we suggest that you move on to a different part of the course.
 If you have time, come back to this problem
 after you've had a break and cleared your head
 """
-s = input("Prove a lower case string")
+s = input("Prove a lower case string:\n")
 
 max_string = ''
 for i in range(len(s)):
