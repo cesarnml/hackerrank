@@ -21,11 +21,9 @@ s = input("Prove a lower case string:\n")
 max_string = ''
 for i in range(len(s)):
     j = i
-    count = 0
     string = s[j]
     while j <= len(s) - 2 and s[j] <= s[j+1]:
         string += s[j+1]
-        count += 1
         j += 1
     if len(string) > len(max_string):
         max_string = string
